@@ -98,7 +98,7 @@ AWS ECR → deploy it to an EC2 instance.
 ### Step 3: Launch an EC2 Instance
 
 1. AWS Console → EC2 → **Launch instance**
-2. Choose Ubuntu 22.04, `t2.micro` (free tier eligible)
+2. Choose Ubuntu 22.04 or any other without SQL , `t3.micro` (free tier eligible)
 3. Create/select a key pair, allow inbound traffic on ports **22** (SSH), **80** (HTTP), and **5000** in the security group
 4. Launch the instance
 
