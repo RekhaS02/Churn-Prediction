@@ -164,3 +164,4 @@ Once green, visit `http://<your-ec2-public-ip>` — your live churn predictor.
 - **Serving:** Flask app wraps the saved model + preprocessor behind a form and a `/predict` endpoint
 - **Reproducibility:** Docker guarantees the app runs identically anywhere
 - **Automation:** GitHub Actions CI/CD means every code change is automatically tested, built, and deployed with zero manual steps — this is the actual "MLOps" part of the project
+
