@@ -8,7 +8,7 @@ app = application
 
 @app.route("/")
 def index():
-    return render_template("index.html")
+    return render_template("index.html", form_data={})
 
 
 @app.route("/health")
@@ -19,7 +19,7 @@ def health():
 @app.route("/predict", methods=["GET", "POST"])
 def predict_churn():
     if request.method == "GET":
-        return render_template("index.html")
+        return render_template("index.html", form_data={})
 
     data = CustomData(
         gender=request.form.get("gender"),
@@ -48,12 +48,29 @@ def predict_churn():
     predict_pipeline = PredictPipeline()
     pred_class, pred_proba = predict_pipeline.predict(pred_df)
 
+    probability_value = round(pred_proba * 100, 1)
+
+    # Three risk bands drive both the gauge color and the verdict copy.
+    if probability_value < 30:
+        risk_level, risk_color, risk_label = "low", "#0EA5A0", "Low risk"
+    elif probability_value < 60:
+        risk_level, risk_color, risk_label = "medium", "#F59E0B", "Medium risk"
+    else:
+        risk_level, risk_color, risk_label = "high", "#DC2626", "High risk"
+
     result = "Likely to Churn" if pred_class == 1 else "Likely to Stay"
 
+    # request.form is echoed straight back so every field the user just
+    # filled in stays populated instead of resetting on submit.
     return render_template(
         "index.html",
+        form_data=request.form,
         result=result,
-        probability=f"{pred_proba * 100:.1f}%",
+        probability=f"{probability_value}%",
+        probability_value=probability_value,
+        risk_level=risk_level,
+        risk_color=risk_color,
+        risk_label=risk_label,
     )
 
 
