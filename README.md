@@ -9,6 +9,12 @@ pipeline to AWS (ECR + EC2).
 
 ---
 
+## Screenshots
+
+| Web Application & Risk Gauge | Automated CI/CD Pipeline (GitHub Actions) |
+| :---: | :---: |
+| <img src="https://github.com/user-attachments/assets/d1882402-0117-41e4-9ba5-7285c2e30b78" width="100%"/> | <img src="https://github.com/user-attachments/assets/2fd0f908-bac4-42de-9ca9-74de6658161d" width="100%"/> |
+
 ## Project Structure
 
 ```
