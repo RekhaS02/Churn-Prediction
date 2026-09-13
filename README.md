@@ -5,7 +5,7 @@ Churn dataset (7,043 customers). Built as a modular ML pipeline, served with
 Flask, containerized with Docker, and deployed via a GitHub Actions CI/CD
 pipeline to AWS (ECR + EC2).
 
-**Best model:** Logistic Regression — F1 ≈ 0.60, Accuracy ≈ 80.5%, ROC-AUC ≈ 0.84
+**Best model:** Random Forest — F1 ≈ 0.63, Accuracy ≈ 0.75, ROC-AUC ≈ 0.84
 
 ---
 
